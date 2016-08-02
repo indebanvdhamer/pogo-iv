@@ -4,13 +4,6 @@ const _ 		= require('lodash');
 const print 	= require('./print.js');
 const pokeId 	= require('../data/pokemon.json');
 
-const config = {
-	u: 'indebanvdhamer@gmail.com',
-	p: 'warhammer90',
-	provider: 'google',
-	location: '51.923171, 4.467580'
-};
-
 function list(req, res) {
 	api.login(req.query.u, req.query.p, req.query.provider)
 		.then(function() {

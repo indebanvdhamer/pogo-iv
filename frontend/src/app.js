@@ -11,16 +11,11 @@ angular.module('iv', ['ngSanitize'])
 			pokemon.perfection = _.round((pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina) / 45 * 100, 1);
 		});
 
-		self.pokemon = function() {
+		self.pokemon = function(credentials) {
 			var defer = $q.defer();
 			
-			// if(!self.list) {
-				$http.get('/api/pokemon', {params: {
-					u: 'indebanvdhamer@gmail.com',
-					p: 'warhammer90',
-					provider: 'google',
-					location: '51.923171, 4.467580'
-				}}).success(function(res) {
+			if(credentials.u && credentials.p && credentials.location && location.provider) {
+				$http.get('/api/pokemon', {params: credentials}).success(function(res) {
 
 					res = _.each(res, function(pokemon) {
 						pokemon.perfection = (pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina) / 45 * 100;
@@ -31,9 +26,7 @@ angular.module('iv', ['ngSanitize'])
 					defer.resolve(self.list);
 
 				});
-			// } else {
-				// defer.resolve(self.pokemon);
-			// }
+			}
 			return defer.promise;
 		};
 	})
@@ -42,7 +35,11 @@ angular.module('iv', ['ngSanitize'])
 		self.fields = fields;
 		self.pokemon = api.list;
 		console.log(self.pokemon);
-		self.getPokemon = api.pokemon;
+		self.getPokemon = function() {
+			api.pokemon({u: self.u, p: self.p, location: self.location, provider: self.provider}).then(function(pokemon) {
+				self.pokemon = pokemon;
+			});
+		};
 
 		self.sortBy = function(prop) {
 			self.direction = self.sort !== prop ? false : !self.direction;
