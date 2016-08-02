@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
     browserify = require('browserify'),
-    // prefix = require('gulp-autoprefixer'),
     source = require('vinyl-source-stream');
 
 var config = {
