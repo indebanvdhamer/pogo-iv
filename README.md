@@ -3,7 +3,8 @@ IV calculator for Pokemon Go
 
 
 Install nodejs (http://www.nodejs.org)
-Intall gulp ('sudo npm install gulp -g')
+
+Install gulp ('sudo npm install gulp -g')
 
 Clone/download this repo
 
