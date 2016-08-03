@@ -13,12 +13,12 @@ angular.module('iv', ['ngSanitize'])
 
 		self.pokemon = function(credentials) {
 			var defer = $q.defer();
-			
-			if(credentials.u && credentials.p && credentials.location && location.provider) {
+			console.log(credentials);
+			if(credentials.u && credentials.p && credentials.location && credentials.provider) {
 				$http.get('/api/pokemon', {params: credentials}).success(function(res) {
 
 					res = _.each(res, function(pokemon) {
-						pokemon.perfection = (pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina) / 45 * 100;
+						pokemon.perfection = _.round((pokemon.individual_attack + pokemon.individual_defense + pokemon.individual_stamina) / 45 * 100, 1);
 					});
 
 					self.list = res;
@@ -33,10 +33,16 @@ angular.module('iv', ['ngSanitize'])
 	.controller('rootController', function(api, fields) {
 		var self = this;
 		self.fields = fields;
+		if(localStorage.credentials) {
+			self.credentials = JSON.parse(localStorage.credentials);
+		} else {
+			self.credentials = {};
+		}
 		self.pokemon = api.list;
 		console.log(self.pokemon);
 		self.getPokemon = function() {
-			api.pokemon({u: self.u, p: self.p, location: self.location, provider: self.provider}).then(function(pokemon) {
+			localStorage.credentials = JSON.stringify(self.credentials);
+			api.pokemon(self.credentials).then(function(pokemon) {
 				self.pokemon = pokemon;
 			});
 		};

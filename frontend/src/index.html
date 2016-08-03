@@ -15,10 +15,10 @@
 	</div>
 
 	<div class="Credentials" style="margin-left: 10%;">
-		<input type="text" placeholder="Username" ng-model="root.u"/>
-		<input type="text" placeholder="Password" ng-model="root.p"/>
-		<input type="text" placeholder="Provider" ng-model="root.provider"/>
-		<input type="text" placeholder="Coordinates" ng-model="root.location"/>
+		<input type="text" placeholder="Username" ng-model="root.credentials.u"/>
+		<input type="text" placeholder="Password" ng-model="root.credentials.p"/>
+		<input type="text" placeholder="Provider" ng-model="root.credentials.provider"/>
+		<input type="text" placeholder="Coordinates" ng-model="root.credentials.location"/>
 
 		<div ng-click="root.getPokemon()" style="margin: 10px 0;" class="button">Get pokemon</div>
 	</div>
