@@ -1,8 +1,7 @@
-<div class="credentials">
-	<input type="text" placeholder="Username" ng-model="root.credentials.u"/>
-	<input type="text" placeholder="Password" ng-model="root.credentials.p"/>
-	<input type="text" placeholder="Provider" ng-model="root.credentials.provider"/>
-	<input type="text" placeholder="Coordinates" ng-model="root.credentials.location"/>
+<form class="credentials" autocomplete="on">
+	<input ng-enter="login(credentials)" type="text" placeholder="Username" ng-model="credentials.u"/>
+	<input ng-enter="login(credentials)" type="password" placeholder="Password" ng-model="credentials.p"/>
+	<input ng-enter="login(credentials)" type="text" placeholder="Provider" ng-model="credentials.provider"/>
 
-	<div ng-click="root.getPokemon()" style="margin: 10px 0;" class="button">Get pokemon</div>
-</div>
+	<div ng-click="login(credentials)" class="login-button login-dialog">Login</div>
+</form>

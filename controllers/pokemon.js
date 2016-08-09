@@ -17,10 +17,8 @@ function getLevel(pokemon) {
 }
 
 function list(req, res) {
-	api.login(req.query.u, req.query.p, req.query.provider)
-		.then(function() {
-			return api.location.set('address', req.query.location).then(api.getPlayerEndpoint);
-		})
+	api.login(req.query.u, req.query.p, req.query.provider || 'google')
+		.then(api.getPlayerEndpoint)
 		.then(api.inventory.get)
 		.then(function(inventory) {
 			// print.printHeader();
