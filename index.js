@@ -1,7 +1,8 @@
 const _ 			= require('lodash');
-const express = require('express');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
+const express 		= require('express');
+const bodyParser 	= require('body-parser');
+const helmet 		= require('helmet');
+const request 		= require('request');
 
 const print 		= require('./controllers/print.js');
 const pokemonCtrl 	= require('./controllers/pokemon.js');
@@ -21,6 +22,7 @@ app.get('/api/pokemon', pokemonCtrl.list);
 //Run
 app.listen(3000);
 console.log("Server listening on port 3000");
+
 
 
 

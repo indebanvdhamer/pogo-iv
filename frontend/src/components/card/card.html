@@ -1,0 +1,74 @@
+<div class="card-big-top">
+	<div class="card-big-type-container">
+		<div class="card-big-type" ng-repeat="type in pokemon.types">
+			<img class="type" ng-src="{{'img/type/' + type + '.png'}}"/><span>{{type}}</span>
+		</div>
+	</div>
+	<i class="card-big-favorite fa fa-star{{::pokemon.favorite ? '' : '-o'}}" aria-hidden="true"></i>
+	<div class="card-big-cp">{{::pokemon.cp}}</div>
+	<div class="card-big-image" style="background-image: url({{::'img/mon/' + pokemon.paddedId + '.png'}});"></div>
+	<div class="card-big-name">{{::pokemon.nickname || pokemon.name}}</div>
+	<div class="card-big-spawntime">Spawned: {{::pokemon.spawnTime}}</div>
+	<div class="card-big-ball" style="background-image: url({{::'img/ball/' + pokemon.pokeball + '.png'}});"></div>
+
+</div>
+
+<div class="stats-container">
+	<div class="iv">
+		<div>{{pokemon.stamina_max}}</div><div class="header-text">Hp</div>
+	</div>
+	<div class="iv">
+		<div>{{pokemon.perfection}}%</div><div class="header-text">IV score</div>
+	</div>
+	<div class="iv">
+		<div>{{pokemon.level}}</div><div class="header-text">Level</div>
+	</div>
+</div>
+<div class="iv-container">
+	<div class="iv">
+		<div>{{pokemon.individual_attack}}</div><div class="header-text">Attack</div>
+	</div>
+	<div class="iv">
+		<div>{{pokemon.individual_defense}}</div><div class="header-text">Defense</div>
+	</div>
+	<div class="iv">
+		<div>{{pokemon.individual_stamina}}</div><div class="header-text">Stamina</div>
+	</div>
+</div>
+
+<div class="moves-container">
+	<div class="moves-header">
+		<!-- <div class="move-name header-text">Quick moves</div> -->
+		<div class="move-damage header-text">Damage</div>
+		<div class="move-dps header-text">Dps</div>
+	</div>
+	<div class="moves-row" ng-repeat="move in pokemon.moves.standard | orderBy:'Power'" style="opacity: {{pokemon.move_1 == move.id ? 1 : 0.2}};">
+		<div class="move-name">
+			<span>{{move.Name}}</span><br/>
+			<span class="move-type">
+				<img class="type" ng-src="{{'img/type/' + move.Type + '.png'}}"/>
+				<span>{{move.Type}}</span>
+			</span>
+		</div>
+		<div class="move-damage">{{move.Power}}</div>
+		<div class="move-dps">{{move.DPS}}</div>
+	</div>
+</div>
+<div class="moves-container">
+	<div class="moves-header">
+		<!-- <div class="move-name header-text">Special moves</div> -->
+		<div class="move-damage header-text">Damage</div>
+		<div class="move-dps header-text">Dps</div>
+	</div>
+	<div class="moves-row" ng-repeat="move in pokemon.moves.special | orderBy:'Power'" style="opacity: {{pokemon.move_2 == move.id ? 1 : 0.2}};">
+		<div class="move-name">
+			<span>{{move.Name}}</span><br/>
+			<span class="move-type">
+				<img class="type" ng-src="{{'img/type/' + move.Type + '.png'}}"/>
+				<span>{{move.Type}}</span>
+			</span>
+		</div>
+		<div class="move-damage">{{move.Power}}</div>
+		<div class="move-dps">{{move.DPS}}</div>
+	</div>
+</div>
