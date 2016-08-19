@@ -1,7 +1,14 @@
 <form class="credentials" autocomplete="on">
-	<input ng-enter="login(credentials)" type="text" placeholder="Username" ng-model="credentials.u"/>
-	<input ng-enter="login(credentials)" type="password" placeholder="Password" ng-model="credentials.p"/>
+	<input ng-enter="login(credentials)" type="text" name="username" placeholder="Username" ng-model="credentials.u"/>
+	<input ng-enter="login(credentials)" type="password" name="password" placeholder="Password" ng-model="credentials.p"/>
 	<input ng-enter="login(credentials)" type="text" placeholder="Provider" ng-model="credentials.provider"/>
 
-	<div ng-click="login(credentials)" class="login-button login-dialog">Login</div>
+	<div ng-click="login(credentials)" class="login-button login-dialog">
+		<span class="login-text">Get local</span>
+		<span class="loader" ng-show="isLoggingIn"></span>
+	</div>
+	<div ng-click="refresh(credentials)" class="login-button login-dialog">
+		<span class="login-text">Update</span>
+		<span class="loader" ng-show="isLoggingIn"></span>
+	</div>
 </form>

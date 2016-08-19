@@ -1,0 +1,14 @@
+[cp-dial] {
+    padding: 4px;
+    height: 150px;
+    width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

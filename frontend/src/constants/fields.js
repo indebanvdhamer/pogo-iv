@@ -2,11 +2,14 @@ var angular 	= require('angular');
 var _ 			= require('lodash');
 
 require('./_index.js').constant('fields', [
-	{name: 'Name', 			prop: 'name', 					width: 20, align: 'left'},
-	{name: 'Nickname', 		prop: 'nickname', 				width: 20, align: 'left'},
-	{name: 'Cp', 			prop: 'cp', 					width: 15, align: 'center'},
-	{name: 'Attack', 		prop: 'individual_attack', 		width: 10, align: 'center'},
-	{name: 'Defense', 		prop: 'individual_defense', 	width: 10, align: 'center'},
-	{name: 'Stamina', 		prop: 'individual_stamina', 	width: 10, align: 'center'},
-	{name: 'Perfection', 	prop: 'perfection', 			width: 15, align: 'center'},
+	{name: 'Name', 			prop: 'name', 					defaultSort: true},
+	{name: 'Nickname', 		prop: 'nickname', 				defaultSort: true},
+	{name: 'Pokedex', 		prop: 'pokemon_id', 			defaultSort: true},
+	{name: 'Cp', 			prop: 'cp', 					defaultSort: false},
+	{name: 'Attack', 		prop: 'individual_attack', 		defaultSort: false},
+	{name: 'Defense', 		prop: 'individual_defense', 	defaultSort: false},
+	{name: 'Stamina', 		prop: 'individual_stamina', 	defaultSort: false},
+	{name: 'IV score', 		prop: 'perfection', 			defaultSort: false},
+	{name: 'Recent', 		prop: 'recent', 				defaultSort: false},
+	{name: 'Favorite', 		prop: 'favorite', 				defaultSort: true},
 ]);

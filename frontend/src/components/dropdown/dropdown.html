@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="selected"
+       ng-class="{'active': dropdown.toggle}"
+       ng-click="dropdown.toggleDropdown()">
+    {{dropdown.selected.name || 'Sort by'}}
+
+  </div>
+  <div class="option"
+     ng-class="{'active': dropdown.toggle}"
+     style="transform: translateY({{dropdown.toggle ? ($index * 30 + 30) : 0}}px); z-index: {{dropdown.options.length - $index}}"
+     ng-repeat="option in dropdown.options track by $index"
+     ng-click="dropdown.select(option)">
+    {{option.name}}
+  </div>
+</div>

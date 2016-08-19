@@ -1,9 +1,9 @@
 <div class="list">
-	<div ng-repeat="pokemon in root.pokemon | searchField:'name':'nickname' | filter:root.searchTerm" class="card" ng-click="root.openCard(pokemon)">
+	<div ng-repeat="pokemon in root.pokemon | searchField:'name':'nickname' | filter:list.settings.searchTerm | orderBy:list.settings.sort" class="card" ng-click="root.openCard(pokemon)">
 		<i ng-if="pokemon.favorite" class="card-favorite fa fa-star" aria-hidden="true"></i>
 		<div class="card-cp">{{pokemon.cp}}</div>
 		<div class="card-perfection">{{pokemon.perfection}}%</div>
 		<div class="card-image" style="background-image: url({{'img/mon/' + pokemon.paddedId + '.png'}});"></div>
-		<div class="card-name" ng-bind-html="pokemon.nickname || pokemon.name | searchFilter:root.searchTerm"></div>
+		<div class="card-name" ng-bind-html="pokemon.nickname || pokemon.name | searchFilter:list.settings.searchTerm"></div>
 	</div>
 </div>

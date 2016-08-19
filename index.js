@@ -16,14 +16,18 @@ app.use(bodyParser.json());
 //Serve static html
 app.use(express.static('./frontend/dist'));
 
+function log(req, res, next) {
+	console.log('GET', req.url);
+	next();
+}
+
 //Api config
-app.get('/api/pokemon', pokemonCtrl.list);
+app.get('/api/pokemon', log, pokemonCtrl.list);
+app.get('/api/refresh', log, pokemonCtrl.callApi);
 
 //Run
 app.listen(3000);
 console.log("Server listening on port 3000");
-
-
 
 
 //Current browser location -> request

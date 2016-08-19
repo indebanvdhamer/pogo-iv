@@ -8,6 +8,10 @@
 	<link rel="shortcut icon" href="img/advisor.ico" type="image/x-icon" />
 
 	<link media="all" rel="stylesheet" href="css/style.css">
+	<link media="all" rel="stylesheet" href="css/loader.css">
+	<link media="all" rel="stylesheet" href="css/dropdown.css">
+	<link media="all" rel="stylesheet" href="css/listUtils.css">
+	<link media="all" rel="stylesheet" href="css/cpDial.css">
 	<link media="all" rel="stylesheet" href="css/ngdialog.css">
 	<link media="all" rel="stylesheet" href="fontawesome/css/font-awesome.css">
 </head>
@@ -19,9 +23,12 @@
 		<span class="login-button" ng-click="root.openLogin()">Login</span>
 	</div>
 
-	<input type="text" placeholder="Search for pokemon" style="margin-left: 10%;" ng-model="root.searchTerm"/>
+
+	<!-- <div cp-dial pokemon="root.pokemonn"></div> -->
+	<list-utils></list-utils>
 
 	<list></list>
+
 	<script src="js/app.bundle.js"></script>
 </body>
 </html>

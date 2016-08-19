@@ -1,6 +1,6 @@
 //Libs
-var angular 	= require('angular');
-var _ 			= require('lodash');
+window.angular 	= require('angular');
+window._ 		= require('lodash');
 
 //Angular dependencies
 var ngSanitize 	= require('angular-sanitize');
